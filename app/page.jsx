@@ -24,14 +24,24 @@ export default function HomePage() {
 						sign up
 					</Link>
 				</div>
-				<div className='mt-32 md:mt-32 flex flex-col '>
-					<section className='flex flex-col md:flex-row gap-16 justify-center items-center min-h-screen w-full border border-gray-400 rounded-md bg-slate-900  px-2 md:px-8 py-8'>
-						<h3 className='mx-auto max-w-4xl font-display text-3xl text-center font-bold tracking-normal text-white sm:text-5xl '>
-							Toutes les <span className='text-blue-400'>fautes</span> sont
-							identifies juste avant la
-							<span className='text-blue-400'>correction</span> finale
-						</h3>
-						<div className=' bg-slate-800 p-4 rounded-md border border-gray-700 text-lg max-w-[400px]'>
+				<div className='mt-32 md:mt-32 flex flex-col gap-24 '>
+					<section className='flex flex-col md:flex-row gap-16 justify-center items-center  w-full   px-2 md:px-8 py-8'>
+						<div className='border-b  border-gray-900 pb-8'>
+							<h3 className='mx-auto max-w-4xl font-display text-3xl font-bold tracking-normal text-white sm:text-5xl text-left '>
+								Toutes les <span className='text-blue-400'>fautes</span> sont
+								identifies juste avant la
+								<span className='text-blue-400'>correction </span> finale
+							</h3>
+							<p className='text-gray-500 mt-8 text-left'>
+								Espyon otograph utilise l'intelligence artificielle pour
+								detecter un ensemble de fautes courantes dan les textes, il se
+								soucie des moindres fautes qui sont susceptibles d'etre
+								presentes dans vos textes ,les accords , les fautes syntaxiques
+								...
+							</p>
+						</div>
+
+						<div className=' bg-slate-800 p-4 rounded-md border border-gray-700 text-lg md:max-w-[400px]'>
 							<p className='text-gray-500 text-justify'>
 								Au lait des mots de la{' '}
 								<span className='bg-yellow-400 rounded'>memoire</span> qui
@@ -45,6 +55,38 @@ export default function HomePage() {
 								massif du quotidien qui bouge et change malgré{' '}
 								<span className='bg-yellow-400 rounded'>l’imobile</span>{' '}
 								éternité du rien
+							</p>
+						</div>
+					</section>
+					<section className='flex flex-col md:flex-row-reverse gap-16 justify-center items-center  w-full   px-2 md:px-8 py-8'>
+						<div className='border-b  border-gray-900 pb-8'>
+							<h3 className='mx-auto max-w-4xl font-display text-3xl font-bold tracking-normal text-white sm:text-5xl text-left '>
+								Vour obtiendrez un{' '}
+								<span className='text-indigo-600'>texte</span> propre et avec
+								une
+								<span className='text-indigo-600'> correction</span> optimale
+							</h3>
+							<p className='text-gray-500 mt-8 text-left'>
+								Vous obtiendrez un nouveau texte corrige au maximum mais
+								succeptible de contenir des fautes subtiles que l'intelligence
+								artificielle n'a pas tenu compte.
+							</p>
+						</div>
+
+						<div className=' bg-slate-800 p-4 rounded-md border border-gray-700 text-lg md:max-w-[400px]'>
+							<p className='text-gray-500 text-justify'>
+								Au lait des mots de la{' '}
+								<span className='bg-sky-800 rounded'>mémoire</span> qui tangue à
+								faire la france en terre créole entre vide et plénitude le jeu
+								cruel du songe saturé d’illusions à côté du mensonge toujours{' '}
+								<span className='bg-sky-800 rounded'>fidele</span> à l’écriture
+								je dis mon île ma ville mon quartier et ma voix en métissage de
+								soleil et de lune mes amours fabuleuses en grossesse de symboles
+								le dérisoire pouvoir des{' '}
+								<span className='bg-sky-800 rounded'>signes</span> face au
+								massif du quotidien qui bouge et change malgré{' '}
+								<span className='bg-sky-800 rounded'>l’immobile</span> éternité
+								du rien
 							</p>
 						</div>
 					</section>
