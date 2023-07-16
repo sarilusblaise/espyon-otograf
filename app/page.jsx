@@ -26,7 +26,7 @@ export default function HomePage() {
 							S'inscrire
 						</Link>
 					</div>
-					<div className='mt-32 md:mt-32 flex flex-col gap-24 '>
+					<div className='mt-8 md:mt-32 flex flex-col gap-24 '>
 						<section className='flex flex-col md:flex-row gap-16 justify-center items-center  w-full   px-2 md:px-8 py-8'>
 							<div className='border-b  border-gray-900 pb-8'>
 								<h3 className='mx-auto max-w-4xl font-display text-3xl font-bold tracking-normal text-white sm:text-5xl text-left '>
