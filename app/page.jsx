@@ -9,7 +9,7 @@ export default function HomePage() {
 				<Header />
 				<main className='flex flex-1 w-full flex-col items-center justify-center text-center px-4 sm:mt-20 mt-10'>
 					<div className='flex flex-col justify-center items-center min-h-[70vh]'>
-						<h2 className='mx-auto max-w-4xl font-display text-4xl text-center font-bold tracking-normal text-white sm:text-7xl '>
+						<h2 className='mx-auto max-w-4xl font-display text-5xl text-center font-bold tracking-normal text-white sm:text-7xl '>
 							<span className='text-blue-400'>Espyon</span>{' '}
 							<span className='text-blue-600'>Ortograf</span> le{' '}
 							<span>correcteur</span> approprie
