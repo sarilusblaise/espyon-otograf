@@ -1,3 +1,30 @@
+# Espyon Otograf
+Espyon-otograf aims to help students, scholars, and Haitian professionals by conducting a comprehensive verification of spelling errors in French text documents. It can emphasize these spelling errors and also make necessary corrections.
+
+# Built with
+- Next.js for UI
+- Tailwindcss for style
+- Firebase as backend service
+
+# Getting Started
+To get started with this project, follow the instructions below :
+
+
+1. Clone the project using git clone or just copy the command below:
+```bash
+git clone https://github.com/sarilusblaise/espyon-otograf.git
+```
+ 2. Open the directory of the project with your favorite code editor 
+
+ 3. Run `npm install` install to get the dependencies
+ 4. Run `npm run dev` to start the development server
+# Live demo
+[click here](https://espyon-otograf.vercel.app/)
+# Getting Started with Create React App
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
