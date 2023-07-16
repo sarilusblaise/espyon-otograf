@@ -4,10 +4,6 @@ import signUp from '../../firebase/auth/signup';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export const metadata = {
-	title: 'se connecter a espyon otograf',
-	description: "Espyon Otograf , votre correcteur d'ortographe ",
-};
 export default function SignUpPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
