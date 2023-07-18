@@ -14,13 +14,16 @@ export default function SignUpPage() {
 
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
-			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-2xl py-8 bg-slate-900'>
-				<h2 className=''>
-					S'inscrire a <span>espyon</span> otograf
+			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900'>
+				<h2 className='text-3xl w-10/12 sm:w-7/12 font-light'>
+					S'inscrire a <span className='text-blue-600'>espyon</span> otograf
 				</h2>
 				<div className='flex flex-col justify-center items-center gap-4 w-full'>
-					<p className='w-10/12  sm:w-7/12'>
-						Vous n'avez pas de compte? <Link href=''>Inscrire ici</Link>
+					<p className='w-10/12  sm:w-7/12 font-bold'>
+						Vous n'avez pas de compte?{' '}
+						<Link href='' className='text-blue-500 font-normal hover:text'>
+							Inscrire ici
+						</Link>
 					</p>
 					<form
 						onSubmit={handleForm}
@@ -72,7 +75,7 @@ export default function SignUpPage() {
 						</button>
 					</form>
 					<p className=''>or</p>
-					<button>
+					<button className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'>
 						<Google /> S'inscrire avec google
 					</button>
 				</div>
