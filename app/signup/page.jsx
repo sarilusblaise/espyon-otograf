@@ -21,7 +21,7 @@ export default function SignUpPage() {
 				<div className='flex flex-col justify-center items-center gap-4 w-full'>
 					<p className='w-10/12  sm:w-7/12 font-bold'>
 						Vous n'avez pas de compte?{' '}
-						<Link href='' className='text-blue-500 font-normal hover:text'>
+						<Link href='' className='text-blue-500 font-normal'>
 							Inscrire ici
 						</Link>
 					</p>
