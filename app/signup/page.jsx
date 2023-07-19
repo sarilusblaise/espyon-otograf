@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
-import EyeClose from '../icons/EyeCLose';
+//import EyeClose from '../icons/EyeCLose';
 
 export default function SignUpPage() {
 	const [email, setEmail] = useState('');
