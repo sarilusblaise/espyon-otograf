@@ -21,7 +21,7 @@ export default function HomePage() {
 						</p>
 						<Link
 							className='bg-emerald-700  w-60 sm:w-80 rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-emerald-600 transition'
-							href=''
+							href='/signup'
 						>
 							S'inscrire
 						</Link>

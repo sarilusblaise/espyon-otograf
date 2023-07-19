@@ -31,7 +31,7 @@ export default function Footer() {
 				</li>
 				<li>
 					<Link
-						href=''
+						href='/login'
 						className=' max-w-fit  space-x-2 rounded-md text-white px-5 py-2 text-sm shadow-md hover:bg-emerald-600 bg-emerald-700 font-medium transition'
 					>
 						connexion
