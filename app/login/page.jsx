@@ -40,7 +40,7 @@ export default function LoginPage() {
 						>
 							<p className=''>email</p>
 							<input
-								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 hover:border-gray-400'
+								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none'
 								type='email'
 								required
 								id='email'
@@ -57,7 +57,7 @@ export default function LoginPage() {
 						>
 							<p>password</p>
 							<input
-								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700'
+								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:outline-none focus:ring-2'
 								type='password'
 								required
 								id='password'
