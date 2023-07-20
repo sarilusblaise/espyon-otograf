@@ -16,7 +16,7 @@ export default function SignUpPage() {
 
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
-			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900'>
+			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900 shadow-4xl'>
 				<h2 className='text-3xl w-10/12 sm:w-7/12 font-light'>
 					S'inscrire a <span className='text-blue-600'>espyon</span> otograf
 				</h2>

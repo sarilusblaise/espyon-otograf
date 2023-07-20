@@ -16,14 +16,17 @@ export default function LoginPage() {
 
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
-			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900'>
+			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900 shadow-4xl'>
 				<h2 className='text-3xl w-10/12 sm:w-7/12 font-light'>
 					Se connecter a <span className='text-blue-600'>espyon</span> otograf
 				</h2>
 				<div className='flex flex-col justify-center items-center gap-4 w-full'>
 					<p className='w-10/12  sm:w-7/12 font-bold'>
 						Vous n'avez pas de compte?{' '}
-						<Link href='/signup' className='text-blue-500 font-normal'>
+						<Link
+							href='/signup'
+							className='text-blue-500 font-normal transition-[text-decoration-style]  w-fit hover:underline hover:decoration-solid'
+						>
 							Inscrire ici
 						</Link>
 					</p>
@@ -67,7 +70,9 @@ export default function LoginPage() {
 								className='absolute right-3 top-12 hover:fill-gray-800'
 								title='afficher le mot de passe '
 							/>
-							<p className=''>Forgot password?</p>
+							<p className='text-blue-500 transition w-fit hover:underline hover:decoration-solid'>
+								Mot de passe oublie?
+							</p>
 						</label>
 
 						<button
