@@ -35,7 +35,7 @@ export default function LoginPage() {
 						className='flex flex-col justify-center items-center w-full gap-8'
 					>
 						<label
-							htmlFor=''
+							htmlFor='email'
 							className='flex flex-col gap-2 w-10/12 bg-transparent sm:w-7/12'
 						>
 							<p className=''>email</p>
@@ -52,7 +52,7 @@ export default function LoginPage() {
 						</label>
 
 						<label
-							htmlFor=''
+							htmlFor='password'
 							className='flex flex-col gap-2 w-10/12 bg-transparent sm:w-7/12 relative'
 						>
 							<p>password</p>
@@ -84,7 +84,7 @@ export default function LoginPage() {
 					</form>
 					<p className=''>or</p>
 					<button className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'>
-						<Google /> continuer avec google
+						<Google /> Continuer avec google
 					</button>
 				</div>
 			</div>

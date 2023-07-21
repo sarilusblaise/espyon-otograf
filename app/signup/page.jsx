@@ -11,8 +11,18 @@ import EyeOpen from '../icons/EyeOpen';
 export default function SignUpPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const router = useRouter();
 
-	function handleForm() {}
+	async function handleForm(e) {
+		e.preventDefault();
+		const { userCredentials, error } = await signUp(email, password);
+		if (error) {
+			return console.log(error);
+		}
+
+		console.log(userCredentials);
+		return router.push();
+	}
 
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
@@ -32,7 +42,7 @@ export default function SignUpPage() {
 						className='flex flex-col justify-center items-center w-full gap-8'
 					>
 						<label
-							htmlFor=''
+							htmlFor='email'
 							className='flex flex-col gap-2 w-10/12 bg-transparent sm:w-7/12'
 						>
 							<p className=''>email</p>
@@ -49,7 +59,7 @@ export default function SignUpPage() {
 						</label>
 
 						<label
-							htmlFor=''
+							htmlFor='password'
 							className='flex flex-col gap-2 w-10/12 bg-transparent sm:w-7/12 relative'
 						>
 							<p>password</p>
