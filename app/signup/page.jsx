@@ -2,7 +2,7 @@
 import React from 'react';
 import signUp from '../../firebase/auth/signup';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
@@ -13,16 +13,17 @@ export default function SignUpPage() {
 	const [password, setPassword] = useState('');
 	const router = useRouter();
 
-	async function handleForm(e) {
+	const handleForm = async (e) => {
 		e.preventDefault();
+		console.log('test signup page');
 		const { userCredentials, error } = await signUp(email, password);
 		if (error) {
-			return console.log(error);
+			return console.log(error.message);
 		}
 
-		console.log(userCredentials);
-		return router.push();
-	}
+		console.log(userCredentials.user);
+		return router.push('/spellCheck');
+	};
 
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
@@ -67,6 +68,7 @@ export default function SignUpPage() {
 								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700'
 								type='password'
 								required
+								minLength={8}
 								id='password'
 								name='password'
 								value={password}
