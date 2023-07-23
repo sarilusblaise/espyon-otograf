@@ -6,11 +6,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
+import { validateEmail, validatePassword } from '../../lib/validateFormInput';
 //import EyeClose from '../icons/EyeCLose';
 
 export default function SignUpPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
 	const router = useRouter();
 
 	const handleForm = async (e) => {
@@ -18,7 +20,7 @@ export default function SignUpPage() {
 		console.log('test signup page');
 		const { userCredentials, error } = await signUp(email, password);
 		if (error) {
-			return console.log(error.message);
+			return setError(error.message);
 		}
 
 		console.log(userCredentials.user);
@@ -39,6 +41,7 @@ export default function SignUpPage() {
 						</Link>
 					</p>
 					<form
+						noValidate
 						onSubmit={handleForm}
 						className='flex flex-col justify-center items-center w-full gap-8'
 					>
@@ -46,26 +49,36 @@ export default function SignUpPage() {
 							htmlFor='email'
 							className='flex flex-col gap-2 w-10/12 bg-transparent sm:w-7/12'
 						>
-							<p className=''>email</p>
+							<p className=''>email *</p>
 							<input
-								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 hover:border-gray-400'
+								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none'
 								type='email'
 								required
 								id='email'
 								name='email'
 								value={email}
 								placeholder='example@gmail.com'
-								onChange={(e) => setEmail(e.target.value)}
+								onChange={(e) => {
+									setEmail(e.target.value);
+									setError('');
+								}}
 							/>
+							{!validateEmail(email).isValid && (
+								<span className='text-red-500'>
+									{validateEmail(email).message}
+								</span>
+							)}
+
+							{error && <span>{error}</span>}
 						</label>
 
 						<label
 							htmlFor='password'
 							className='flex flex-col gap-2 w-10/12 bg-transparent sm:w-7/12 relative'
 						>
-							<p>password</p>
+							<p>password *</p>
 							<input
-								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700'
+								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none'
 								type='password'
 								required
 								minLength={8}
@@ -79,6 +92,9 @@ export default function SignUpPage() {
 								className='absolute right-3 top-12 hover:fill-gray-800'
 								title='afficher le mot de passe '
 							/>
+							{!validatePassword(password).isValid && (
+								<span className=''>{validatePassword(password).message}</span>
+							)}
 						</label>
 
 						<button
