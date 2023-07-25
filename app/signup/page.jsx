@@ -2,6 +2,7 @@
 import React from 'react';
 import signUp from '../../firebase/auth/signup';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
@@ -13,8 +14,11 @@ export default function SignUpPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [isEmailValid, setIsEmailValid] = useState(true);
+	const [isPasswordValid, setIsPasswordValid] = useState(true);
 	const router = useRouter();
-
+	const canSubmit =
+		validateEmail(email).isValid && validatePassword(password).isValid;
 	const handleForm = async (e) => {
 		e.preventDefault();
 		console.log('test signup page');
@@ -42,6 +46,7 @@ export default function SignUpPage() {
 					</p>
 					<form
 						noValidate
+						autoComplete='off'
 						onSubmit={handleForm}
 						className='flex flex-col justify-center items-center w-full gap-8'
 					>
@@ -51,7 +56,7 @@ export default function SignUpPage() {
 						>
 							<p className=''>email *</p>
 							<input
-								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none'
+								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none invalid:border-red-500'
 								type='email'
 								required
 								id='email'
@@ -60,16 +65,17 @@ export default function SignUpPage() {
 								placeholder='example@gmail.com'
 								onChange={(e) => {
 									setEmail(e.target.value);
+									setIsEmailValid(validateEmail(email).isValid);
 									setError('');
 								}}
 							/>
-							{!validateEmail(email).isValid && (
-								<span className='text-red-500'>
+							{!isEmailValid && (
+								<span className='text-red-500 text-sm'>
 									{validateEmail(email).message}
 								</span>
 							)}
 
-							{error && <span>{error}</span>}
+							{error && <span className='text-red-500'>{error}</span>}
 						</label>
 
 						<label
@@ -78,7 +84,7 @@ export default function SignUpPage() {
 						>
 							<p>password *</p>
 							<input
-								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none'
+								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none invalid:border-red-500'
 								type='password'
 								required
 								minLength={8}
@@ -86,26 +92,38 @@ export default function SignUpPage() {
 								name='password'
 								value={password}
 								placeholder='password'
-								onChange={(e) => setPassword(e.target.value)}
+								onChange={(e) => {
+									setPassword(e.target.value);
+									setIsPasswordValid(
+										(currentpassword) => validatePassword(password).isValid
+									);
+								}}
 							/>
 							<EyeOpen
 								className='absolute right-3 top-12 hover:fill-gray-800'
 								title='afficher le mot de passe '
 							/>
-							{!validatePassword(password).isValid && (
-								<span className=''>{validatePassword(password).message}</span>
+							{!isPasswordValid && (
+								<span className='text-red-500 text-sm'>
+									{validatePassword(password).message}
+								</span>
 							)}
 						</label>
 
 						<button
 							type='submit'
-							className='w-10/12 bg-emerald-900 rounded sm:w-7/12 py-2 text-white'
+							disabled={!canSubmit}
+							className='w-10/12 bg-emerald-900 rounded sm:w-7/12 py-2 text-white disabled:opacity-50 disabled:text-gray-400'
 						>
 							S'inscrire
 						</button>
 					</form>
 					<p className=''>or</p>
-					<button className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'>
+					<button
+						type='button'
+						className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'
+						disabled
+					>
 						<Google /> S'inscrire avec google
 					</button>
 				</div>

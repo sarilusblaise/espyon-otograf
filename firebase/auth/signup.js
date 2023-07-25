@@ -46,7 +46,7 @@ export default async function signUp(email, password) {
 			e.message =
 				'Cet email existe deja. Veuillez essayer avec un autre email.';
 		}
-		error = e;
+		error = e.message;
 	}
 
 	return { userCredentials, error };
