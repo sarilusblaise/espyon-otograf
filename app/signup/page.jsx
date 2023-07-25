@@ -22,9 +22,10 @@ export default function SignUpPage() {
 	const handleForm = async (e) => {
 		e.preventDefault();
 		console.log('test signup page');
-		const { userCredentials, error } = await signUp(email, password);
-		if (error) {
-			return setError(error.message);
+		const { userCredentials, error: resError } = await signUp(email, password);
+		if (resError) {
+			console.log(resError.message);
+			return setError(resError.message);
 		}
 
 		console.log(userCredentials.user);
@@ -56,7 +57,7 @@ export default function SignUpPage() {
 						>
 							<p className=''>email *</p>
 							<input
-								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none invalid:border-red-500'
+								className='bg-transparent px-4 py-2 w-full rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none '
 								type='email'
 								required
 								id='email'
@@ -84,7 +85,7 @@ export default function SignUpPage() {
 						>
 							<p>password *</p>
 							<input
-								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none invalid:border-red-500'
+								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none '
 								type='password'
 								required
 								minLength={8}
