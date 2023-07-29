@@ -1,15 +1,17 @@
 'use client';
 import React from 'react';
 import signUp from '../../firebase/auth/signup';
+import googleSignIn from '../../firebase/auth/googleSignin';
 import { useState, useRef } from 'react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
+import EyeClose from '../icons/EyeCLose';
 import { validateEmail, validatePassword } from '../../lib/validateFormInput';
 import FormValidationError from '../../components/FormValidationError';
-import EyeClose from '../icons/EyeCLose';
+
 export default function SignUpPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -32,6 +34,18 @@ export default function SignUpPage() {
 		if (resError) {
 			console.log(resError.message);
 			return setError(resError.message);
+		}
+
+		console.log(userCredentials.user);
+		return router.push('/spellCheck');
+	};
+
+	const handleGoogleSignInOnClick = async (event) => {
+		event.preventDefault();
+		console.log('test signup page');
+		const { userCredentials, error: resError } = await googleSignIn();
+		if (resError) {
+			console.log(resError.message);
 		}
 
 		console.log(userCredentials.user);
@@ -145,7 +159,7 @@ export default function SignUpPage() {
 						<button
 							type='submit'
 							disabled={!canSubmit}
-							className='w-10/12 bg-emerald-900 rounded sm:w-7/12 py-2 text-white disabled:opacity-50 disabled:text-gray-400'
+							className='w-10/12 bg-emerald-900 rounded sm:w-7/12 py-2 text-white disabled:opacity-40 disabled:text-gray-400'
 						>
 							S'inscrire
 						</button>
@@ -154,6 +168,7 @@ export default function SignUpPage() {
 					<button
 						type='button'
 						className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'
+						onClick={handleGoogleSignInOnClick}
 					>
 						<Google /> S'inscrire avec google
 					</button>
