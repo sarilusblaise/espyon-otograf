@@ -9,7 +9,7 @@ import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
 import { validateEmail, validatePassword } from '../../lib/validateFormInput';
 import FormValidationError from '../../components/FormValidationError';
-//import EyeClose from '../icons/EyeCLose';
+import EyeClose from '../icons/EyeCLose';
 export default function SignUpPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -18,6 +18,7 @@ export default function SignUpPage() {
 		showEmailError: false,
 		showPasswordError: false,
 	});
+	const [showPassword, setShowPassword] = useState(false);
 	const router = useRouter();
 	const isEmailValid = validateEmail(email);
 	const isPasswordValid = validatePassword(password);
@@ -51,7 +52,9 @@ export default function SignUpPage() {
 			setShowErrorOnBlur({ ...showErrorOnBlur, showPasswordError: false });
 		}
 	};
-
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword);
+	};
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
 			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900 shadow-4xl'>
@@ -94,7 +97,7 @@ export default function SignUpPage() {
 								<FormValidationError isInputValid={isEmailValid} />
 							)}
 
-							{error && <span className='text-red-500'>{error}</span>}
+							{error && <span className='text-red-400'>{error}</span>}
 						</label>
 
 						<label
@@ -104,7 +107,7 @@ export default function SignUpPage() {
 							<p>password</p>
 							<input
 								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:ring-2 focus:outline-none '
-								type='password'
+								type={showPassword ? 'text' : 'password'}
 								required
 								minLength={8}
 								id='password'
@@ -116,10 +119,24 @@ export default function SignUpPage() {
 								}}
 								onBlur={handlePasswordBlur}
 							/>
-							<EyeOpen
-								className='absolute right-3 top-12 hover:fill-gray-800'
-								title='afficher le mot de passe '
-							/>
+							<button
+								type='button'
+								className='absolute right-3 top-12'
+								onClick={togglePasswordVisibility}
+							>
+								{showPassword ? (
+									<EyeClose
+										className=' hover:fill-gray-800 transition'
+										title='masquer le mot de passe '
+									/>
+								) : (
+									<EyeOpen
+										className=' hover:fill-gray-800 transition'
+										title='afficher le mot de passe '
+									/>
+								)}
+							</button>
+
 							{showErrorOnBlur.showPasswordError && (
 								<FormValidationError isInputValid={isPasswordValid} />
 							)}
@@ -137,7 +154,6 @@ export default function SignUpPage() {
 					<button
 						type='button'
 						className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'
-						disabled
 					>
 						<Google /> S'inscrire avec google
 					</button>
