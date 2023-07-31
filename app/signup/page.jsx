@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
+import EyeClose from '../icons/EyeClose';
 import EyeOpen from '../icons/EyeOpen';
-import EyeClose from '../icons/EyeCLose';
 import { validateEmail, validatePassword } from '../../lib/validateFormInput';
 import FormValidationError from '../../components/FormValidationError';
 
