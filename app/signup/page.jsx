@@ -45,7 +45,7 @@ export default function SignUpPage() {
 		console.log('test signup page');
 		const { userCredentials, error: resError } = await googleSignIn();
 		if (resError) {
-			console.log(resError.message);
+			return console.log(resError.message);
 		}
 
 		console.log(userCredentials.user);
