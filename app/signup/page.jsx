@@ -166,7 +166,7 @@ export default function SignUpPage() {
 					<p className=''>or</p>
 					<button
 						type='button'
-						className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'
+						className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12 transition hover:bg-slate-800 '
 						onClick={handleGoogleSignInOnClick}
 					>
 						<Google /> S'inscrire avec google
