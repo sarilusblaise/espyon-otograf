@@ -40,8 +40,7 @@ export default function SignUpPage() {
 		return router.push('/spellCheck');
 	};
 
-	const handleGoogleSignInOnClick = async (event) => {
-		event.preventDefault();
+	const handleGoogleSignInOnClick = async () => {
 		console.log('test signup page');
 		const { userCredentials, error: resError } = await googleSignIn();
 		if (resError) {
