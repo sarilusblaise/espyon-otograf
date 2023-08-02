@@ -28,13 +28,13 @@ export default function HomePage() {
 					</div>
 					<div className='mt-8 md:mt-32 flex flex-col gap-24 '>
 						<section className='flex flex-col md:flex-row gap-16 justify-center items-center  w-full   px-2 md:px-8 py-8'>
-							<div className='border-b  border-gray-900 pb-8'>
+							<div className='border-b  border-gray-900 pb-4'>
 								<h3 className='mx-auto max-w-4xl font-display text-3xl font-bold tracking-normal text-white sm:text-5xl text-left '>
 									Toutes les <span className='text-blue-400'>fautes</span> sont
 									identifies juste avant la
 									<span className='text-blue-400'>correction </span> finale
 								</h3>
-								<p className='text-gray-500 mt-8 text-left'>
+								<p className='text-gray-500 mt-4 text-left'>
 									Espyon otograph utilise l'intelligence artificielle pour
 									detecter un ensemble de fautes courantes dan les textes, il se
 									soucie des moindres fautes qui sont susceptibles d'etre
@@ -62,14 +62,14 @@ export default function HomePage() {
 							</div>
 						</section>
 						<section className='flex flex-col md:flex-row-reverse gap-16 justify-center items-center  w-full   px-2 md:px-8 py-8'>
-							<div className='border-b  border-gray-900 pb-8'>
+							<div className='border-b  border-gray-900 pb-4'>
 								<h3 className='mx-auto max-w-4xl font-display text-3xl font-bold tracking-normal text-white sm:text-5xl text-left '>
 									Vour obtiendrez un{' '}
 									<span className='text-indigo-600'>texte</span> propre et avec
 									une
 									<span className='text-indigo-600'> correction</span> optimale
 								</h3>
-								<p className='text-gray-500 mt-8 text-left'>
+								<p className='text-gray-500 mt-4 text-left'>
 									Vous obtiendrez un nouveau texte corrige au maximum mais
 									succeptible de contenir des fautes subtiles que l'intelligence
 									artificielle n'a pas tenu compte.
