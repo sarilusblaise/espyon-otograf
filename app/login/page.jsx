@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
-import signUp from '../../firebase/auth/signup';
+import signIn from '../../firebase/auth/signin';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
@@ -11,8 +11,20 @@ import EyeOpen from '../icons/EyeOpen';
 export default function LoginPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+	const router = useRouter();
+	const handleForm = async (e) => {
+		e.preventDefault();
+		console.log('test signin page');
+		const { userCredentials, error: resError } = await signIn(email, password);
+		if (resError) {
+			console.log(resError.message);
+			return setError(resError.message);
+		}
 
-	function handleForm() {}
+		console.log(userCredentials);
+		return router.push('/spellCheck');
+	};
 
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
@@ -49,6 +61,7 @@ export default function LoginPage() {
 								placeholder='example@gmail.com'
 								onChange={(e) => setEmail(e.target.value)}
 							/>
+							{error && <span className='text-red-400 text-sm'>{error}</span>}
 						</label>
 
 						<label
@@ -83,7 +96,10 @@ export default function LoginPage() {
 						</button>
 					</form>
 					<p className=''>or</p>
-					<button className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'>
+					<button
+						type='button'
+						className='flex justify-center gap-2 px-4 py-2 w-10/12 bg-transparent rounded border border-gray-700 sm:w-7/12'
+					>
 						<Google /> Continuer avec google
 					</button>
 				</div>
