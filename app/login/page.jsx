@@ -43,6 +43,8 @@ export default function LoginPage() {
 						</Link>
 					</p>
 					<form
+						noValidate
+						autoComplete='off'
 						onSubmit={handleForm}
 						className='flex flex-col justify-center items-center w-full gap-8'
 					>

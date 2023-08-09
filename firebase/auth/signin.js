@@ -10,9 +10,16 @@ export default async function signIn(email, password) {
 		if (validateEmail(email).isValid) {
 			userCredential = await signInWithEmailAndPassword(auth, email, password);
 		} else {
-			throw new Error('email non valide');
+			throw new Error('adresse email non valide');
 		}
 	} catch (e) {
+		if (e.code === 'auth/wrong-password') {
+			e.message = '  email ou password incorrect';
+		}
+		if (e.code === 'auth/network-request-failed') {
+			e.message =
+				"une erreur inconnue s'est produite .Veuillez verifier votre connexion internet";
+		}
 		error = e;
 	}
 
