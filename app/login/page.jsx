@@ -6,12 +6,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Google from '../icons/Google';
 import EyeOpen from '../icons/EyeOpen';
-//import EyeClose from '../icons/EyeCLose';
+import EyeClose from '../icons/EyeClose';
 
 export default function LoginPage() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [showPassword, setShowPassword] = useState(false);
 	const router = useRouter();
 	const handleForm = async (e) => {
 		e.preventDefault();
@@ -25,7 +26,9 @@ export default function LoginPage() {
 		console.log(userCredentials);
 		return router.push('/spellCheck');
 	};
-
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword);
+	};
 	return (
 		<article className='p-2  flex justify-center items-center min-h-screen '>
 			<div className='text-gray-300 flex flex-col justify-center items-center gap-8 w-full  sm:max-w-xl py-8 bg-slate-900 shadow-4xl'>
@@ -73,7 +76,7 @@ export default function LoginPage() {
 							<p>password</p>
 							<input
 								className='px-4 py-2 w-full bg-transparent rounded border border-gray-700 focus:border-gray-500 focus:outline-none focus:ring-2'
-								type='password'
+								type={showPassword ? 'text' : 'password'}
 								required
 								id='password'
 								name='password'
@@ -81,10 +84,24 @@ export default function LoginPage() {
 								placeholder='password'
 								onChange={(e) => setPassword(e.target.value)}
 							/>
-							<EyeOpen
-								className='absolute right-3 top-12 hover:fill-gray-800'
-								title='afficher le mot de passe '
-							/>
+							<button
+								type='button'
+								className='absolute right-3 top-12'
+								onClick={togglePasswordVisibility}
+							>
+								{showPassword ? (
+									<EyeClose
+										className=' hover:fill-gray-800 transition'
+										title='masquer le mot de passe '
+									/>
+								) : (
+									<EyeOpen
+										className=' hover:fill-gray-800 transition'
+										title='afficher le mot de passe '
+									/>
+								)}
+							</button>
+
 							<p className='text-blue-500 transition w-fit hover:underline hover:decoration-solid'>
 								Mot de passe oublie?
 							</p>
